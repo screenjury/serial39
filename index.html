@@ -1,0 +1,229 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Varinder Singh Pehal | Serial No. 39</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+body {
+    margin: 0;
+    font-family: 'Inter', sans-serif;
+    background: #F5F1E8;
+    color: #1f1f1f;
+    overflow-x: hidden;
+}
+
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 80px;
+    position: relative;
+}
+
+.left {
+    width: 55%;
+}
+
+.right {
+    width: 40%;
+    text-align: right;
+}
+
+.right img {
+    width: 100%;
+    max-width: 450px;
+}
+
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 60px;
+    margin: 0;
+}
+
+.designation {
+    margin: 20px 0;
+    font-size: 20px;
+    line-height: 1.6;
+}
+
+.serial-big {
+    font-size: 150px;
+    font-weight: 700;
+    color: #A30000;
+    margin: 20px 0;
+}
+
+.details {
+    margin-top: 20px;
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+button {
+    margin-top: 30px;
+    padding: 14px 28px;
+    font-size: 16px;
+    background: #A30000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 1px;
+}
+
+button:hover {
+    opacity: 0.9;
+}
+
+.floating-39 {
+    position: fixed;
+    top: 20px;
+    right: 30px;
+    font-size: 40px;
+    font-weight: bold;
+    color: #A30000;
+    z-index: 1000;
+}
+
+.watermark {
+    position: absolute;
+    bottom: -50px;
+    left: 0;
+    font-size: 500px;
+    font-weight: 700;
+    color: rgba(163, 0, 0, 0.05);
+    z-index: 0;
+}
+
+.intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #F5F1E8;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 200px;
+    font-weight: bold;
+    color: #A30000;
+    z-index: 2000;
+    transition: all 1s ease;
+}
+
+.hidden {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    z-index: 3000;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.5);
+}
+
+.modal-content {
+    background: white;
+    margin: 15% auto;
+    padding: 30px;
+    width: 80%;
+    max-width: 400px;
+    text-align: center;
+}
+
+@media (max-width: 768px) {
+    .hero {
+        flex-direction: column;
+        padding: 40px 20px;
+    }
+
+    .left, .right {
+        width: 100%;
+        text-align: center;
+    }
+
+    .serial-big {
+        font-size: 120px;
+    }
+
+    h1 {
+        font-size: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="intro" id="intro">39</div>
+
+<div class="floating-39">39</div>
+
+<div class="hero">
+    <div class="watermark">39</div>
+
+    <div class="left">
+        <h1>VARINDER SINGH PEHAL</h1>
+
+        <div class="designation">
+            Former President, District Bar Association, Karnal<br>
+            Candidate for Member, Bar Council Punjab & Haryana
+        </div>
+
+        <div class="serial-big">39</div>
+
+        <div class="details">
+            Requesting Your First / Best Preference Vote<br><br>
+            17th March – Chandigarh<br>
+            18th March – Punjab & Haryana<br><br>
+            Mob: 989603005<br>
+            Chamber No. 72
+        </div>
+
+        <button onclick="openModal()">VOTE & SUPPORT – SERIAL NO. 39</button>
+    </div>
+
+    <div class="right">
+        <img src="portrait.png" alt="Varinder Singh Pehal">
+    </div>
+</div>
+
+<div class="modal" id="modal">
+    <div class="modal-content">
+        <h3>Thank You for Your Support</h3>
+        Kindly vote for Varinder Singh Pehal.<br><br>
+        <strong>Serial No. 39</strong>
+        <br><br>
+        17th March – Chandigarh<br>
+        18th March – Punjab & Haryana
+        <br><br>
+        <button onclick="closeModal()">Close</button>
+    </div>
+</div>
+
+<script>
+window.onload = function() {
+    setTimeout(function(){
+        document.getElementById("intro").classList.add("hidden");
+    }, 2000);
+}
+
+function openModal() {
+    document.getElementById("modal").style.display = "block";
+}
+
+function closeModal() {
+    document.getElementById("modal").style.display = "none";
+}
+</script>
+
+</body>
+</html>
