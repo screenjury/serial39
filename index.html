@@ -18,7 +18,40 @@ body {
     text-align: center;
 }
 
-/* MASSIVE BACKGROUND 39 */
+/* INTRO */
+
+.intro {
+    position: fixed;
+    width: 100%;
+    height: 100vh;
+    background: #111;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 3000;
+    transition: opacity 1s ease;
+}
+
+.intro-39 {
+    font-size: 25vw;
+    font-weight: 700;
+    color: #A30000;
+    transform: scale(0.5);
+    opacity: 0;
+    animation: zoomIn 2s forwards;
+}
+
+@keyframes zoomIn {
+    0% { transform: scale(0.5); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
+}
+
+.hide-intro {
+    opacity: 0;
+    pointer-events: none;
+}
+
+/* BACKGROUND 39 */
 
 .bg-39 {
     position: fixed;
@@ -32,7 +65,7 @@ body {
     pointer-events: none;
 }
 
-/* Floating corner 39 */
+/* FLOATING */
 
 .floating {
     position: fixed;
@@ -45,22 +78,24 @@ body {
     z-index: 1000;
 }
 
-/* Main container */
+/* MAIN */
 
 .container {
     position: relative;
     z-index: 2;
     padding: 90px 20px 120px;
+    opacity: 0;
+    transition: opacity 1s ease;
 }
 
-/* Portrait */
+.container.show {
+    opacity: 1;
+}
 
 .container img {
     width: 100%;
     max-width: 420px;
 }
-
-/* Name */
 
 h1 {
     font-family: 'Playfair Display', serif;
@@ -69,27 +104,27 @@ h1 {
     letter-spacing: 2px;
 }
 
-/* Authority tagline */
+/* IMPORTANT LINE */
 
-.tagline {
-    margin-top: 15px;
-    font-size: 16px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
+.vote-line {
+    margin-top: 25px;
+    font-size: 20px;
+    font-style: italic;
     font-weight: 600;
-    color: #666;
+    color: #A30000;
+    display: inline-block;
+    border-bottom: 2px solid #A30000;
+    padding-bottom: 5px;
 }
 
-/* Dominant 39 */
+/* SERIAL */
 
 .serial {
     font-size: 190px;
     font-weight: 700;
     color: #A30000;
-    margin: 40px 0 10px;
+    margin: 50px 0 10px;
 }
-
-/* Label */
 
 .label {
     font-size: 14px;
@@ -98,7 +133,7 @@ h1 {
     margin-bottom: 40px;
 }
 
-/* Details */
+/* DETAILS */
 
 .details {
     font-size: 18px;
@@ -109,11 +144,11 @@ h1 {
     font-weight: 600;
 }
 
-/* Button */
+/* BUTTON */
 
 button {
-    margin-top: 50px;
-    padding: 20px 50px;
+    margin-top: 60px;
+    padding: 20px 55px;
     border: none;
     background: #A30000;
     color: white;
@@ -126,10 +161,10 @@ button {
 
 button:hover {
     background: #7d0000;
-    transform: translateY(-2px);
+    transform: translateY(-3px);
 }
 
-/* Modal */
+/* MODAL */
 
 .modal {
     display: none;
@@ -153,16 +188,22 @@ button:hover {
 
 <body>
 
+<div class="intro" id="intro">
+    <div class="intro-39">39</div>
+</div>
+
 <div class="bg-39">39</div>
 <div class="floating">39</div>
 
-<div class="container">
+<div class="container" id="container">
 
     <img src="portrait.png" alt="Varinder Singh Pehal">
 
     <h1>VARINDER SINGH PEHAL</h1>
 
-    <div class="tagline">Remember Only One Number</div>
+    <div class="vote-line">
+        Requesting your 1st/ best preference vote
+    </div>
 
     <div class="serial">39</div>
     <div class="label">BALLOT / SERIAL NO.</div>
@@ -195,6 +236,12 @@ button:hover {
 </div>
 
 <script>
+
+setTimeout(() => {
+    document.getElementById("intro").classList.add("hide-intro");
+    document.getElementById("container").classList.add("show");
+}, 2500);
+
 function openModal() {
     document.getElementById("modal").style.display = "block";
 }
@@ -202,6 +249,7 @@ function openModal() {
 function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
+
 </script>
 
 </body>
