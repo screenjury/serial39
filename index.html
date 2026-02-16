@@ -8,6 +8,7 @@
 <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
 
 <style>
+
 body {
     margin: 0;
     font-family: 'Inter', sans-serif;
@@ -16,89 +17,7 @@ body {
     overflow-x: hidden;
 }
 
-.hero {
-    min-height: 100vh;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    padding: 80px;
-    position: relative;
-}
-
-.left {
-    width: 55%;
-}
-
-.right {
-    width: 40%;
-    text-align: right;
-}
-
-.right img {
-    width: 100%;
-    max-width: 450px;
-}
-
-h1 {
-    font-family: 'Playfair Display', serif;
-    font-size: 60px;
-    margin: 0;
-}
-
-.designation {
-    margin: 20px 0;
-    font-size: 20px;
-    line-height: 1.6;
-}
-
-.serial-big {
-    font-size: 150px;
-    font-weight: 700;
-    color: #A30000;
-    margin: 20px 0;
-}
-
-.details {
-    margin-top: 20px;
-    font-size: 18px;
-    line-height: 1.8;
-}
-
-button {
-    margin-top: 30px;
-    padding: 14px 28px;
-    font-size: 16px;
-    background: #A30000;
-    color: white;
-    border: none;
-    cursor: pointer;
-    letter-spacing: 1px;
-}
-
-button:hover {
-    opacity: 0.9;
-}
-
-.floating-39 {
-    position: fixed;
-    top: 20px;
-    right: 30px;
-    font-size: 40px;
-    font-weight: bold;
-    color: #A30000;
-    z-index: 1000;
-}
-
-.watermark {
-    position: absolute;
-    bottom: -50px;
-    left: 0;
-    font-size: 500px;
-    font-weight: 700;
-    color: rgba(163, 0, 0, 0.05);
-    z-index: 0;
-}
-
+/* INTRO SCREEN */
 .intro {
     position: fixed;
     width: 100%;
@@ -107,18 +26,126 @@ button:hover {
     display: flex;
     align-items: center;
     justify-content: center;
-    font-size: 200px;
-    font-weight: bold;
+    font-size: 220px;
+    font-weight: 700;
     color: #A30000;
     z-index: 2000;
-    transition: all 1s ease;
+    transition: opacity 1.2s ease, transform 1.2s ease;
 }
 
 .hidden {
     opacity: 0;
+    transform: scale(0.6);
     visibility: hidden;
 }
 
+/* FLOATING 39 */
+.floating-39 {
+    position: fixed;
+    top: 25px;
+    right: 35px;
+    font-size: 42px;
+    font-weight: 700;
+    color: #A30000;
+    opacity: 0.85;
+    z-index: 1500;
+}
+
+/* HERO SECTION */
+.hero {
+    min-height: 100vh;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 90px 100px;
+    position: relative;
+}
+
+/* WATERMARK */
+.watermark {
+    position: absolute;
+    bottom: -80px;
+    left: 0;
+    font-size: 520px;
+    font-weight: 700;
+    color: rgba(163, 0, 0, 0.05);
+    z-index: 0;
+    pointer-events: none;
+}
+
+.left {
+    width: 55%;
+    position: relative;
+    z-index: 2;
+}
+
+.right {
+    width: 40%;
+    text-align: right;
+    position: relative;
+    z-index: 2;
+}
+
+.right img {
+    width: 100%;
+    max-width: 520px;
+}
+
+/* NAME */
+h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 66px;
+    margin: 0;
+    letter-spacing: 2px;
+}
+
+/* RED DIVIDER */
+.divider {
+    width: 130px;
+    height: 3px;
+    background: #A30000;
+    margin: 25px 0;
+}
+
+/* DESIGNATION */
+.designation {
+    font-size: 20px;
+    line-height: 1.7;
+}
+
+/* BIG 39 */
+.serial-big {
+    font-size: 170px;
+    font-weight: 700;
+    color: #A30000;
+    margin: 30px 0;
+}
+
+/* DETAILS */
+.details {
+    font-size: 18px;
+    line-height: 1.8;
+}
+
+/* BUTTON */
+button {
+    margin-top: 35px;
+    padding: 18px 36px;
+    font-size: 15px;
+    background: #A30000;
+    color: white;
+    border: none;
+    cursor: pointer;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    transition: background 0.3s ease;
+}
+
+button:hover {
+    background: #7d0000;
+}
+
+/* MODAL */
 .modal {
     display: none;
     position: fixed;
@@ -132,79 +159,99 @@ button:hover {
 
 .modal-content {
     background: white;
-    margin: 15% auto;
-    padding: 30px;
-    width: 80%;
-    max-width: 400px;
+    margin: 12% auto;
+    padding: 40px;
+    width: 90%;
+    max-width: 420px;
     text-align: center;
+    line-height: 1.7;
 }
 
-@media (max-width: 768px) {
+/* MOBILE */
+@media (max-width: 900px) {
+
     .hero {
         flex-direction: column;
-        padding: 40px 20px;
+        padding: 60px 25px;
+        text-align: center;
     }
 
     .left, .right {
         width: 100%;
+    }
+
+    .right {
+        margin-bottom: 30px;
         text-align: center;
     }
 
-    .serial-big {
-        font-size: 120px;
+    .right img {
+        max-width: 380px;
     }
 
     h1 {
-        font-size: 40px;
+        font-size: 42px;
     }
+
+    .serial-big {
+        font-size: 150px;
+    }
+
+    .floating-39 {
+        font-size: 30px;
+        top: 15px;
+        right: 20px;
+    }
+
 }
+
 </style>
 </head>
 
 <body>
 
 <div class="intro" id="intro">39</div>
-
 <div class="floating-39">39</div>
 
 <div class="hero">
-    <div class="watermark">39</div>
 
-    <div class="left">
-        <h1>VARINDER SINGH PEHAL</h1>
+<div class="watermark">39</div>
 
-        <div class="designation">
-            Former President, District Bar Association, Karnal<br>
-            Candidate for Member, Bar Council Punjab & Haryana
-        </div>
+<div class="left">
+    <h1>VARINDER SINGH PEHAL</h1>
+    <div class="divider"></div>
 
-        <div class="serial-big">39</div>
-
-        <div class="details">
-            Requesting Your First / Best Preference Vote<br><br>
-            17th March – Chandigarh<br>
-            18th March – Punjab & Haryana<br><br>
-            Mob: 989603005<br>
-            Chamber No. 72
-        </div>
-
-        <button onclick="openModal()">VOTE & SUPPORT – SERIAL NO. 39</button>
+    <div class="designation">
+        Former President, District Bar Association, Karnal<br>
+        Candidate for Member, Bar Council Punjab & Haryana
     </div>
 
-    <div class="right">
-        <img src="portrait.png" alt="Varinder Singh Pehal">
+    <div class="serial-big">39</div>
+
+    <div class="details">
+        Requesting Your First / Best Preference Vote<br><br>
+        17th March – Chandigarh<br>
+        18th March – Punjab & Haryana<br><br>
+        Mob: 989603005<br>
+        Chamber No. 72
     </div>
+
+    <button onclick="openModal()">VOTE & SUPPORT – SERIAL NO. 39</button>
+</div>
+
+<div class="right">
+    <img src="portrait.png" alt="Varinder Singh Pehal">
+</div>
+
 </div>
 
 <div class="modal" id="modal">
     <div class="modal-content">
         <h3>Thank You for Your Support</h3>
         Kindly vote for Varinder Singh Pehal.<br><br>
-        <strong>Serial No. 39</strong>
-        <br><br>
+        <strong>Serial No. 39</strong><br><br>
         17th March – Chandigarh<br>
-        18th March – Punjab & Haryana
-        <br><br>
+        18th March – Punjab & Haryana<br><br>
         <button onclick="closeModal()">Close</button>
     </div>
 </div>
