@@ -11,37 +11,37 @@
 
 body {
     margin: 0;
+    background: #0d0d0d;
     font-family: 'Inter', sans-serif;
-    background: #F5F1E8;
-    color: #1f1f1f;
-    overflow-x: hidden;
+    color: #f2f2f2;
     text-align: center;
+    overflow-x: hidden;
 }
 
-/* ================= INTRO ================= */
+/* ===== INTRO ===== */
 
 .intro {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #111;
+    background: #0d0d0d;
     display: flex;
     justify-content: center;
     align-items: center;
-    z-index: 3000;
+    z-index: 5000;
     transition: opacity 1s ease;
 }
 
 .intro-39 {
-    font-size: 35vw;   /* Bigger & responsive */
+    font-size: 30vw;
     font-weight: 700;
-    color: #A30000;
+    color: #b30000;
     opacity: 0;
-    animation: zoomIn 2s forwards;
+    animation: introZoom 2s forwards;
 }
 
-@keyframes zoomIn {
-    0% { transform: scale(0.6); opacity: 0; }
+@keyframes introZoom {
+    0% { transform: scale(0.8); opacity: 0; }
     100% { transform: scale(1); opacity: 1; }
 }
 
@@ -50,21 +50,21 @@ body {
     pointer-events: none;
 }
 
-/* ================= BACKGROUND 39 ================= */
+/* ===== BACKGROUND WATERMARK ===== */
 
 .bg-39 {
     position: fixed;
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
-    font-size: 70vw;
+    font-size: 65vw;
     font-weight: 700;
-    color: rgba(163,0,0,0.05);
+    color: rgba(179,0,0,0.05);
     z-index: 0;
     pointer-events: none;
 }
 
-/* Floating corner 39 */
+/* Floating 39 */
 
 .floating {
     position: fixed;
@@ -72,17 +72,17 @@ body {
     right: 30px;
     font-size: 28px;
     font-weight: 700;
-    color: #A30000;
-    opacity: 0.85;
-    z-index: 1000;
+    color: #b30000;
+    opacity: 0.9;
+    z-index: 2000;
 }
 
-/* ================= MAIN ================= */
+/* ===== MAIN ===== */
 
 .container {
     position: relative;
     z-index: 2;
-    padding: 90px 20px 120px;
+    padding: 100px 20px 140px;
     opacity: 0;
     transition: opacity 1s ease;
 }
@@ -94,88 +94,97 @@ body {
 .container img {
     width: 100%;
     max-width: 420px;
+    border: 4px solid #1a1a1a;
 }
+
+/* Name */
 
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 48px;
-    margin-top: 30px;
+    font-size: 50px;
+    margin-top: 35px;
     letter-spacing: 2px;
 }
 
-/* Designation */
+/* Former */
 
 .former {
     margin-top: 15px;
     font-size: 18px;
+    color: #cccccc;
 }
+
+/* Candidate highlight */
 
 .candidate {
-    margin-top: 8px;
+    margin-top: 10px;
+    font-size: 22px;
     font-weight: 700;
-    font-size: 20px;
-    position: relative;
-    display: inline-block;
+    color: #ffffff;
 }
 
-.candidate::after {
-    content: "";
-    display: block;
-    height: 2px;
-    background: #A30000;
-    margin-top: 5px;
-}
-
-/* Important vote line */
+/* Vote line */
 
 .vote-line {
     margin-top: 35px;
     font-size: 20px;
     font-style: italic;
     font-weight: 600;
-    color: #A30000;
+    color: #b30000;
 }
 
 /* Serial */
 
 .serial {
-    font-size: 190px;
+    font-size: 200px;
     font-weight: 700;
-    color: #A30000;
-    margin: 50px 0 10px;
+    color: #b30000;
+    margin: 60px 0 10px;
 }
 
 .label {
     font-size: 14px;
     letter-spacing: 4px;
     font-weight: 600;
-    margin-bottom: 40px;
+    margin-bottom: 50px;
+    color: #bbbbbb;
 }
 
-/* Details */
+/* Election block */
 
-.details {
+.election {
+    display: inline-block;
+    border: 2px solid #b30000;
+    padding: 25px 35px;
+    margin-top: 20px;
     font-size: 18px;
-    line-height: 1.9;
+    line-height: 1.8;
+}
+
+/* Contact */
+
+.contact {
+    margin-top: 30px;
+    font-size: 18px;
 }
 
 /* Button */
 
 button {
     margin-top: 60px;
-    padding: 20px 55px;
+    padding: 20px 60px;
+    background: #b30000;
     border: none;
-    background: #A30000;
     color: white;
     font-size: 15px;
     letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: all 0.3s ease;
+    transition: 0.3s;
 }
 
 button:hover {
-    background: #7d0000;
+    background: #800000;
     transform: translateY(-3px);
 }
 
@@ -184,19 +193,19 @@ button:hover {
 .modal {
     display: none;
     position: fixed;
-    z-index: 4000;
+    z-index: 6000;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.6);
-    justify-content: center;
-    align-items: center;
+    background: rgba(0,0,0,0.8);
 }
 
 .modal-content {
-    background: white;
-    padding: 45px;
+    background: #111;
+    padding: 50px;
     max-width: 420px;
+    margin: 15% auto;
     text-align: center;
+    color: #f2f2f2;
 }
 
 </style>
@@ -223,6 +232,8 @@ button:hover {
 
     <div class="candidate">
         Candidate for Member, Bar Council Punjab & Haryana
+    </div>
+
     <div class="vote-line">
         Requesting your 1st/ best preference vote
     </div>
@@ -230,12 +241,14 @@ button:hover {
     <div class="serial">39</div>
     <div class="label">BALLOT / SERIAL NO.</div>
 
-    <div class="details">
-        <strong>ELECTION DATE:</strong><br>
+    <div class="election">
+        <strong>ELECTION DATE</strong><br>
         17th March – Chandigarh<br>
-        18th March – Punjab & Haryana<br><br>
+        18th March – Punjab & Haryana
+    </div>
 
-        Mob: 9896030005<br>
+    <div class="contact">
+        Mob: 989603005<br>
         Chamber No. 72
     </div>
 
@@ -243,9 +256,8 @@ button:hover {
 
 </div>
 
-<div class="modal" id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:4000; text-align:center;">
-
-    <div style="background:white; max-width:420px; margin:15% auto; padding:45px;">
+<div class="modal" id="modal">
+    <div class="modal-content">
         <h3>Thank You for Your Support</h3>
         Kindly vote for Varinder Singh Pehal.<br><br>
         <strong>Ballot / Serial No. 39</strong><br><br>
@@ -253,7 +265,6 @@ button:hover {
         18th March – Punjab & Haryana<br><br>
         <button onclick="closeModal()">Close</button>
     </div>
-
 </div>
 
 <script>
@@ -262,7 +273,7 @@ window.onload = function() {
     setTimeout(function() {
         document.getElementById("intro").classList.add("hide-intro");
         document.getElementById("container").classList.add("show");
-    }, 2500);
+    }, 2200);
 };
 
 function openModal() {
