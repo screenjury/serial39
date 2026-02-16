@@ -11,51 +11,38 @@
 
 body {
     margin: 0;
-    background: #0b0b0b;
-    color: #f5f5f5;
     font-family: 'Inter', sans-serif;
+    background: #F5F1E8;
+    color: #1f1f1f;
     overflow-x: hidden;
     text-align: center;
 }
 
-/* ================= INTRO ================= */
+/* INTRO */
 
 .intro {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #0b0b0b;
+    background: #111;
     display: flex;
-    flex-direction: column;
     justify-content: center;
     align-items: center;
-    z-index: 5000;
-    transition: opacity 0.8s ease;
-}
-
-.intro-line {
-    width: 0;
-    height: 3px;
-    background: #b30000;
-    animation: lineExpand 1s forwards;
-}
-
-@keyframes lineExpand {
-    to { width: 120px; }
+    z-index: 3000;
+    transition: opacity 1s ease;
 }
 
 .intro-39 {
-    font-size: 22vw;
+    font-size: 35vw;
     font-weight: 700;
-    color: #b30000;
-    margin-top: 40px;
+    color: #A30000;
     opacity: 0;
-    animation: reveal39 1.2s forwards;
-    animation-delay: 0.8s;
+    animation: zoomIn 2s forwards;
 }
 
-@keyframes reveal39 {
-    to { opacity: 1; }
+@keyframes zoomIn {
+    0% { transform: scale(0.6); opacity: 0; }
+    100% { transform: scale(1); opacity: 1; }
 }
 
 .hide-intro {
@@ -63,39 +50,37 @@ body {
     pointer-events: none;
 }
 
-/* ================= WATERMARK ================= */
+/* BACKGROUND 39 */
 
 .bg-39 {
     position: fixed;
-    top: 60%;
-    left: 55%;
+    top: 50%;
+    left: 50%;
     transform: translate(-50%, -50%);
     font-size: 70vw;
     font-weight: 700;
-    color: rgba(179,0,0,0.05);
+    color: rgba(163,0,0,0.05);
     z-index: 0;
     pointer-events: none;
 }
 
-/* Floating corner 39 */
-
 .floating {
     position: fixed;
     top: 25px;
-    right: 35px;
+    right: 30px;
     font-size: 28px;
     font-weight: 700;
-    color: #b30000;
-    opacity: 0.9;
-    z-index: 2000;
+    color: #A30000;
+    opacity: 0.85;
+    z-index: 1000;
 }
 
-/* ================= MAIN ================= */
+/* MAIN */
 
 .container {
     position: relative;
     z-index: 2;
-    padding: 120px 20px 150px;
+    padding: 90px 20px 120px;
     opacity: 0;
     transition: opacity 1s ease;
 }
@@ -109,29 +94,22 @@ body {
     max-width: 420px;
 }
 
-/* NAME */
-
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 52px;
-    margin-top: 40px;
+    font-size: 48px;
+    margin-top: 30px;
     letter-spacing: 2px;
 }
-
-/* Former */
 
 .former {
     margin-top: 15px;
     font-size: 18px;
-    color: #cccccc;
 }
 
-/* Candidate (highlighted) */
-
 .candidate {
-    margin-top: 10px;
-    font-size: 22px;
+    margin-top: 8px;
     font-weight: 700;
+    font-size: 20px;
     position: relative;
     display: inline-block;
 }
@@ -140,91 +118,53 @@ h1 {
     content: "";
     display: block;
     height: 2px;
-    background: #b30000;
-    margin-top: 6px;
+    background: #A30000;
+    margin-top: 5px;
 }
-
-/* Vote line */
 
 .vote-line {
-    margin-top: 40px;
+    margin-top: 35px;
     font-size: 20px;
+    font-style: italic;
     font-weight: 600;
-    color: #b30000;
+    color: #A30000;
 }
 
-/* Serial */
-
 .serial {
-    font-size: 220px;
+    font-size: 190px;
     font-weight: 700;
-    color: #b30000;
-    margin: 80px 0 10px;
+    color: #A30000;
+    margin: 50px 0 10px;
 }
 
 .label {
     font-size: 14px;
-    letter-spacing: 5px;
+    letter-spacing: 4px;
     font-weight: 600;
-    margin-bottom: 60px;
-    color: #bbbbbb;
+    margin-bottom: 40px;
 }
 
-/* Election block */
-
-.election {
-    display: inline-block;
-    border: 2px solid #b30000;
-    padding: 30px 40px;
+.details {
     font-size: 18px;
-    line-height: 1.8;
+    line-height: 1.9;
 }
-
-/* Contact */
-
-.contact {
-    margin-top: 40px;
-    font-size: 18px;
-}
-
-/* Button */
 
 button {
-    margin-top: 70px;
-    padding: 22px 65px;
-    background: #b30000;
+    margin-top: 60px;
+    padding: 20px 55px;
     border: none;
+    background: #A30000;
     color: white;
     font-size: 15px;
     letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
-    transition: 0.3s ease;
+    transition: all 0.3s ease;
 }
 
 button:hover {
-    background: #800000;
+    background: #7d0000;
     transform: translateY(-3px);
-}
-
-/* Modal */
-
-.modal {
-    display: none;
-    position: fixed;
-    z-index: 6000;
-    width: 100%;
-    height: 100%;
-    background: rgba(0,0,0,0.85);
-}
-
-.modal-content {
-    background: #111;
-    padding: 50px;
-    max-width: 420px;
-    margin: 15% auto;
-    text-align: center;
-    color: #f5f5f5;
 }
 
 </style>
@@ -233,7 +173,6 @@ button:hover {
 <body>
 
 <div class="intro" id="intro">
-    <div class="intro-line"></div>
     <div class="intro-39">39</div>
 </div>
 
@@ -261,14 +200,12 @@ button:hover {
     <div class="serial">39</div>
     <div class="label">BALLOT / SERIAL NO.</div>
 
-    <div class="election">
-        <strong>ELECTION DATE</strong><br>
+    <div class="details">
+        <strong>ELECTION DATE:</strong><br>
         17th March – Chandigarh<br>
-        18th March – Punjab & Haryana
-    </div>
+        18th March – Punjab & Haryana<br><br>
 
-    <div class="contact">
-        Mob: 989603005<br>
+        Mob: 9896030005<br>
         Chamber No. 72
     </div>
 
@@ -276,8 +213,9 @@ button:hover {
 
 </div>
 
-<div class="modal" id="modal">
-    <div class="modal-content">
+<div id="modal" style="display:none; position:fixed; top:0; left:0; width:100%; height:100%; background:rgba(0,0,0,0.6); z-index:4000; text-align:center;">
+
+    <div style="background:white; max-width:420px; margin:15% auto; padding:45px;">
         <h3>Thank You for Your Support</h3>
         Kindly vote for Varinder Singh Pehal.<br><br>
         <strong>Ballot / Serial No. 39</strong><br><br>
@@ -285,6 +223,7 @@ button:hover {
         18th March – Punjab & Haryana<br><br>
         <button onclick="closeModal()">Close</button>
     </div>
+
 </div>
 
 <script>
@@ -293,7 +232,7 @@ window.onload = function() {
     setTimeout(function() {
         document.getElementById("intro").classList.add("hide-intro");
         document.getElementById("container").classList.add("show");
-    }, 2200);
+    }, 2500);
 };
 
 function openModal() {
