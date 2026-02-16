@@ -1,72 +1,48 @@
 <!DOCTYPE html>
-<html lang="en">
+<html>
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Varinder Singh Pehal | Ballot No. 39</title>
+<title>Varinder Singh Pehal | Ballot 39</title>
 
-<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600;700&family=Inter:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
+
 body {
     margin: 0;
     background: #F5F1E8;
     font-family: 'Inter', sans-serif;
-    color: #1f1f1f;
     overflow-x: hidden;
+    color: #1f1f1f;
 }
 
-/* INTRO ANIMATION */
+/* INTRO GRID ANIMATION */
 
 .intro {
     position: fixed;
     width: 100%;
     height: 100vh;
-    background: #F5F1E8;
+    background: #111;
     display: flex;
-    justify-content: center;
+    flex-wrap: wrap;
     align-items: center;
-    flex-direction: column;
+    justify-content: center;
     z-index: 3000;
+    overflow: hidden;
     transition: opacity 1s ease;
 }
 
-.ballot-box {
-    width: 140px;
-    height: 100px;
-    border: 3px solid #1f1f1f;
-    position: relative;
-}
-
-.ballot-slot {
-    width: 60px;
-    height: 6px;
-    background: #1f1f1f;
-    position: absolute;
-    top: -8px;
-    left: 50%;
-    transform: translateX(-50%);
-}
-
-.slip {
-    width: 90px;
-    height: 60px;
-    background: white;
-    border: 2px solid #A30000;
-    position: absolute;
-    top: -120px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    font-weight: bold;
-    font-size: 28px;
+.intro span {
     color: #A30000;
-    animation: drop 1.5s forwards;
+    font-weight: 700;
+    font-size: 40px;
+    opacity: 0;
+    animation: appear 0.6s forwards;
 }
 
-@keyframes drop {
-    0% { top: -120px; }
-    100% { top: 10px; opacity: 0; }
+@keyframes appear {
+    to { opacity: 1; }
 }
 
 .hide-intro {
@@ -74,11 +50,11 @@ body {
     pointer-events: none;
 }
 
-/* MAIN PAGE */
+/* MAIN CONTENT */
 
 .hero {
-    padding: 60px 25px 80px;
     text-align: center;
+    padding: 70px 20px 100px;
 }
 
 .hero img {
@@ -89,45 +65,70 @@ body {
 h1 {
     font-family: 'Playfair Display', serif;
     font-size: 42px;
-    margin: 20px 0 10px;
+    margin-top: 25px;
     letter-spacing: 2px;
 }
 
 .designation {
-    font-size: 18px;
+    font-weight: 300;
+    margin-top: 10px;
     line-height: 1.6;
 }
 
 .label {
-    margin-top: 30px;
-    font-size: 14px;
-    letter-spacing: 2px;
+    margin-top: 40px;
+    font-size: 12px;
+    letter-spacing: 3px;
+    font-weight: 600;
     color: #666;
 }
 
 .serial {
-    font-size: 150px;
+    font-size: 160px;
     font-weight: 700;
     color: #A30000;
-    margin: 10px 0;
+    margin: 10px 0 20px;
 }
 
 .details {
-    margin-top: 20px;
+    margin-top: 10px;
     font-size: 18px;
     line-height: 1.8;
 }
 
+.details strong {
+    font-weight: 600;
+}
+
 button {
-    margin-top: 35px;
-    padding: 16px 32px;
-    background: #A30000;
-    color: white;
-    border: none;
+    margin-top: 40px;
+    padding: 18px 40px;
+    font-size: 15px;
     letter-spacing: 2px;
     text-transform: uppercase;
+    border: none;
+    background: #A30000;
+    color: white;
     cursor: pointer;
-    transition: background 0.3s ease;
+    position: relative;
+    overflow: hidden;
+    transition: 0.3s;
+}
+
+/* SUBTLE PULSE EFFECT */
+button::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: rgba(255,255,255,0.2);
+    top: 0;
+    left: -100%;
+    transition: 0.5s;
+}
+
+button:hover::after {
+    left: 0;
 }
 
 button:hover {
@@ -135,8 +136,7 @@ button:hover {
 }
 
 /* Floating 39 */
-
-.floating-39 {
+.floating {
     position: fixed;
     top: 20px;
     right: 25px;
@@ -152,19 +152,16 @@ button:hover {
     display: none;
     position: fixed;
     z-index: 4000;
-    left: 0;
-    top: 0;
     width: 100%;
     height: 100%;
-    background: rgba(0,0,0,0.5);
+    background: rgba(0,0,0,0.6);
 }
 
 .modal-content {
     background: white;
-    margin: 15% auto;
     padding: 40px;
-    width: 85%;
-    max-width: 420px;
+    max-width: 400px;
+    margin: 15% auto;
     text-align: center;
 }
 
@@ -173,14 +170,9 @@ button:hover {
 
 <body>
 
-<div class="intro" id="intro">
-    <div class="ballot-box">
-        <div class="ballot-slot"></div>
-        <div class="slip">39</div>
-    </div>
-</div>
+<div class="intro" id="intro"></div>
 
-<div class="floating-39">39</div>
+<div class="floating">39</div>
 
 <div class="hero">
     <img src="portrait.png" alt="Varinder Singh Pehal">
@@ -219,9 +211,20 @@ button:hover {
 </div>
 
 <script>
-setTimeout(function(){
-    document.getElementById("intro").classList.add("hide-intro");
-}, 2000);
+
+// Generate grid of 39s
+const intro = document.getElementById("intro");
+
+for(let i = 0; i < 300; i++) {
+    let span = document.createElement("span");
+    span.innerText = "39";
+    span.style.animationDelay = (i * 0.01) + "s";
+    intro.appendChild(span);
+}
+
+setTimeout(() => {
+    intro.classList.add("hide-intro");
+}, 4000);
 
 function openModal() {
     document.getElementById("modal").style.display = "block";
@@ -230,6 +233,7 @@ function openModal() {
 function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
+
 </script>
 
 </body>
