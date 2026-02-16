@@ -15,97 +15,90 @@ body {
     background: #F5F1E8;
     color: #1f1f1f;
     overflow-x: hidden;
+    text-align: center;
 }
 
-/* INTRO */
+/* MASSIVE BACKGROUND 39 */
 
-.intro {
+.bg-39 {
     position: fixed;
-    width: 100%;
-    height: 100vh;
-    background: #111;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-direction: column;
-    z-index: 3000;
-    transition: opacity 0.8s ease;
-}
-
-.line {
-    width: 0;
-    height: 2px;
-    background: white;
-    animation: expand 1s forwards;
-}
-
-@keyframes expand {
-    to { width: 200px; }
-}
-
-.intro-39 {
-    font-size: 120px;
-    color: #A30000;
-    opacity: 0;
-    margin-top: 30px;
-    animation: reveal39 1s forwards;
-    animation-delay: 1s;
-}
-
-@keyframes reveal39 {
-    to { opacity: 1; }
-}
-
-.hide-intro {
-    opacity: 0;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 70vw;
+    font-weight: 700;
+    color: rgba(163,0,0,0.05);
+    z-index: 0;
     pointer-events: none;
 }
 
-/* HERO */
+/* Floating corner 39 */
 
-.hero {
+.floating {
+    position: fixed;
+    top: 25px;
+    right: 30px;
+    font-size: 28px;
+    font-weight: 700;
+    color: #A30000;
+    opacity: 0.85;
+    z-index: 1000;
+}
+
+/* Main container */
+
+.container {
+    position: relative;
+    z-index: 2;
     padding: 90px 20px 120px;
-    text-align: center;
-    opacity: 0;
-    transition: opacity 1s ease;
 }
 
-.hero.show {
-    opacity: 1;
-}
+/* Portrait */
 
-.hero img {
+.container img {
     width: 100%;
     max-width: 420px;
 }
 
+/* Name */
+
 h1 {
     font-family: 'Playfair Display', serif;
-    font-size: 46px;
+    font-size: 48px;
     margin-top: 30px;
     letter-spacing: 2px;
 }
 
-.designation {
-    margin-top: 12px;
-    font-weight: 300;
-    line-height: 1.7;
-}
+/* Authority tagline */
 
-.label {
-    margin-top: 50px;
-    font-size: 12px;
-    letter-spacing: 4px;
+.tagline {
+    margin-top: 15px;
+    font-size: 16px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
     font-weight: 600;
     color: #666;
 }
 
+/* Dominant 39 */
+
 .serial {
-    font-size: 170px;
+    font-size: 190px;
     font-weight: 700;
     color: #A30000;
-    margin: 10px 0 25px;
+    margin: 40px 0 10px;
 }
+
+/* Label */
+
+.label {
+    font-size: 14px;
+    letter-spacing: 4px;
+    font-weight: 600;
+    margin-bottom: 40px;
+}
+
+/* Details */
 
 .details {
     font-size: 18px;
@@ -116,15 +109,15 @@ h1 {
     font-weight: 600;
 }
 
-/* BUTTON */
+/* Button */
 
 button {
     margin-top: 50px;
-    padding: 18px 46px;
-    background: transparent;
-    border: 2px solid #A30000;
-    color: #A30000;
-    font-size: 14px;
+    padding: 20px 50px;
+    border: none;
+    background: #A30000;
+    color: white;
+    font-size: 15px;
     letter-spacing: 3px;
     text-transform: uppercase;
     cursor: pointer;
@@ -132,24 +125,11 @@ button {
 }
 
 button:hover {
-    background: #A30000;
-    color: white;
+    background: #7d0000;
+    transform: translateY(-2px);
 }
 
-/* FLOATING 39 */
-
-.floating {
-    position: fixed;
-    top: 20px;
-    right: 25px;
-    font-size: 26px;
-    font-weight: bold;
-    color: #A30000;
-    opacity: 0.85;
-    z-index: 1000;
-}
-
-/* MODAL */
+/* Modal */
 
 .modal {
     display: none;
@@ -173,32 +153,28 @@ button:hover {
 
 <body>
 
-<div class="intro" id="intro">
-    <div class="line"></div>
-    <div class="intro-39">39</div>
-</div>
-
+<div class="bg-39">39</div>
 <div class="floating">39</div>
 
-<div class="hero" id="hero">
+<div class="container">
 
     <img src="portrait.png" alt="Varinder Singh Pehal">
 
     <h1>VARINDER SINGH PEHAL</h1>
 
-    <div class="designation">
-        Former President, District Bar Association, Karnal<br>
-        Candidate for Member, Bar Council Punjab & Haryana
-    </div>
+    <div class="tagline">Remember Only One Number</div>
 
-    <div class="label">BALLOT / SERIAL NO.</div>
     <div class="serial">39</div>
+    <div class="label">BALLOT / SERIAL NO.</div>
 
     <div class="details">
-        Requesting Your First / Best Preference Vote<br><br>
+        Former President, District Bar Association, Karnal<br>
+        Candidate for Member, Bar Council Punjab & Haryana<br><br>
+
         <strong>ELECTION DATE:</strong><br>
         17th March – Chandigarh<br>
         18th March – Punjab & Haryana<br><br>
+
         Mob: 989603005<br>
         Chamber No. 72
     </div>
@@ -219,12 +195,6 @@ button:hover {
 </div>
 
 <script>
-
-setTimeout(() => {
-    document.getElementById("intro").classList.add("hide-intro");
-    document.getElementById("hero").classList.add("show");
-}, 2800);
-
 function openModal() {
     document.getElementById("modal").style.display = "block";
 }
@@ -232,7 +202,6 @@ function openModal() {
 function closeModal() {
     document.getElementById("modal").style.display = "none";
 }
-
 </script>
 
 </body>
